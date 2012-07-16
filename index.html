@@ -12,21 +12,21 @@
             font-family: 'Signika Negative', sans-serif; text-transform:uppercase;
             color: #000;
           }
-          
-          .slider { 
-            margin-bottom: 10px; 
+
+          .slider {
+            margin-bottom: 10px;
           }
-          
+
           #control_panel {
             margin-bottom: 20px;
           }
-          
+
           a {
             color: #333;
-          }          
+          }
       </style>
     <link href='http://fonts.googleapis.com/css?family=Signika+Negative' rel='stylesheet' type='text/css'>
-    
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -43,43 +43,43 @@
   </head>
 
   <body>
-    <div id="control_panel" class="modern_upcase" style="padding:10px;width:99%;background:#eee;">      
+    <div id="control_panel" class="modern_upcase" style="padding:10px;width:99%;background:#eee;">
       <div>Initial Kerning <span id="initial_value"></span></div>
       <div id="initial_kern_slider" class="slider"></div>
-      
+
       <div>Change by <span id="step_value"></span></div>
       <div id="step_slider" class="slider"></div>
       <div>
         By <a href="https://github.com/nodanaonlyzuul" target="_bottom">nodanaonlyzuul</a> see <a href="https://github.com/nodanaonlyzuul/itsgonnarain" target="_bottom">the source</a>
       </div>
-      
+
       <div>
         <a href="http://en.wikipedia.org/wiki/It%27s_Gonna_Rain" target="_blank">Wikipedia</a> | <a href="http://www.youtube.com/watch?v=-iNhil6GPYU">YouTube</a>
       </div>
-      
+
     </div>
-    
+
     <div id="content" class="modern_upcase" style="margin: 0 auto; width: 720px;"></div>
     <script type="text/javascript" charset="utf-8">
       // Drawing Stuff
       var output       = "";
       var initial_kern = 2;
       var initial_step = 0.01;
-      
+
       function draw(starting_kerning, step) {
         var output       = "";
         $('#initial_value').html(starting_kerning);
         $('#step_value').html(step);
-        
-        for (var i = 0; i < 200; i++){
+
+        for (var i = 0; i < 1000; i++){
           output = output + "<span style='letter-spacing:"+starting_kerning+"em'>It's gonna rain</span>";
           starting_kerning = starting_kerning - step;
         }
         $('#content').html(output);
       }
-      
+
       draw(initial_kern,initial_step);
-      
+
       // Slider Stuff
       $("#initial_kern_slider, #step_slider").slider({
         value: initial_kern,
@@ -90,7 +90,7 @@
           draw($('#initial_kern_slider').slider("value"), $('#step_slider').slider("value"));
         }
       });
-      
+
       $("#step_slider").slider({
         value: initial_step,
         min: 0.01,
@@ -100,8 +100,8 @@
           $('#content').empty();
           draw($('#initial_kern_slider').slider("value"), $('#step_slider').slider("value"));
         }
-      });      
-      
+      });
+
     </script>
   </body>
 </html>
